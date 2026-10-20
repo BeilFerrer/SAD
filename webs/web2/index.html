@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JONYMELABO // Overwatch Legend</title>
+  <!-- Fuentes futuristas de juego -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@600;700&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --ow-orange: #ff4500;
+      --ow-purple: #9d4edd;
+      --ow-gold: #ffcc00;
+      --ow-dark: #0a0c10;
+      --ow-card: #121620;
+      --ow-text: #f0f4f8;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Rajdhani', sans-serif;
+    }
+
+    body {
+      background-color: var(--ow-dark);
+      color: var(--ow-text);
+      overflow-x: hidden;
+      background-image: 
+        radial-gradient(circle at 20% 20%, rgba(255, 69, 0, 0.15) 0%, transparent 40%),
+        radial-gradient(circle at 80% 80%, rgba(157, 78, 221, 0.15) 0%, transparent 40%);
+      background-attachment: fixed;
+    }
+
+    /* Navbar */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.2rem 5%;
+      background: rgba(10, 12, 16, 0.9);
+      border-bottom: 2px solid var(--ow-orange);
+      backdrop-filter: blur(10px);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .logo {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 1.8rem;
+      font-weight: 900;
+      color: var(--ow-orange);
+      letter-spacing: 2px;
+      text-shadow: 0 0 10px rgba(255, 69, 0, 0.6);
+    }
+
+    .logo span {
+      color: var(--ow-gold);
+    }
+
+    .tag-rank {
+      font-family: 'Orbitron', sans-serif;
+      background: linear-gradient(90deg, var(--ow-orange), var(--ow-purple));
+      padding: 0.4rem 1rem;
+      border-radius: 4px;
+      font-weight: 700;
+      font-size: 0.9rem;
+      color: #fff;
+      box-shadow: 0 0 10px rgba(255, 69, 0, 0.4);
+    }
+
+    /* Hero Section */
+    .hero {
+      min-height: 80vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 2rem 1rem;
+      position: relative;
+    }
+
+    .hero-badge {
+      font-family: 'Orbitron', sans-serif;
+      color: var(--ow-gold);
+      border: 1px solid var(--ow-gold);
+      padding: 0.3rem 1rem;
+      letter-spacing: 3px;
+      font-size: 0.9rem;
+      margin-bottom: 1rem;
+      background: rgba(255, 204, 0, 0.1);
+    }
+
+    .hero h1 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 4.5rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 4px;
+      line-height: 1;
+      margin-bottom: 1rem;
+      background: linear-gradient(135deg, #fff 30%, var(--ow-orange) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      filter: drop-shadow(0 0 15px rgba(255, 69, 0, 0.5));
+    }
+
+    .hero p {
+      font-size: 1.5rem;
+      max-width: 650px;
+      color: #a0aec0;
+      margin-bottom: 2.5rem;
+      letter-spacing: 1px;
+    }
+
+    .btn-nuke {
+      font-family: 'Orbitron', sans-serif;
+      padding: 1rem 2.5rem;
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #fff;
+      background: linear-gradient(90deg, #e63946, #d62828);
+      border: none;
+      clip-path: polygon(10% 0, 100% 0, 90% 100%, 0 100%);
+      cursor: pointer;
+      text-transform: uppercase;
+      transition: all 0.3s ease;
+      box-shadow: 0 0 20px rgba(230, 57, 70, 0.6);
+      text-decoration: none;
+    }
+
+    .btn-nuke:hover {
+      background: var(--ow-gold);
+      color: #000;
+      transform: scale(1.08);
+      box-shadow: 0 0 30px var(--ow-gold);
+    }
+
+    /* Stats Grid */
+    .section-title {
+      font-family: 'Orbitron', sans-serif;
+      text-align: center;
+      font-size: 2.5rem;
+      text-transform: uppercase;
+      margin: 3rem 0 1.5rem;
+      color: var(--ow-text);
+    }
+
+    .grid-stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 2rem;
+      padding: 0 5% 4rem;
+      max-width: 1300px;
+      margin: 0 auto;
+    }
+
+    .card {
+      background: var(--ow-card);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 8px;
+      padding: 2rem;
+      text-align: center;
+      position: relative;
+      transition: all 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-8deg);
+      border-color: var(--ow-orange);
+      box-shadow: 0 10px 25px rgba(255, 69, 0, 0.3);
+    }
+
+    .card-icon {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .card h3 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 1.6rem;
+      color: var(--ow-gold);
+      margin-bottom: 0.5rem;
+    }
+
+    .card p {
+      color: #a0aec0;
+      font-size: 1.2rem;
+      line-height: 1.4;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 2rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      color: #718096;
+      font-size: 1rem;
+    }
+
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 2.8rem; }
+      header { flex-direction: column; gap: 1rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="logo">JONY<span>MELABO</span></div>
+    <div class="tag-rank">ROL: DPS DEAD 💀</div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-badge">PERFIL JUGADOR // OVERWATCH</div>
+    <h1>JONYMELABO</h1>
+    <p>DPS que pasa más tiempo en la pantalla de espectador que vivo, pero cuando respawnea farmea aura como nadie.</p>
+    <button class="btn-nuke" onclick="bombardearFrancia()">💣 BOMBARDEAR FRANCIA 💣</button>
+  </section>
+
+  <!-- Stats Grid -->
+  <h2 class="section-title">Estadísticas Principales</h2>
+  <section class="grid-stats">
+    
+    <div class="card">
+      <div class="card-icon">💀</div>
+      <h3>DPS Dead</h3>
+      <p>Especialista en morir en los primeros 3 segundos de la teamfight y culpar a los supports.</p>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">✨</div>
+      <h3>Aura: +67</h3>
+      <p>Aunque vaya 0/12/0, el farm de aura en el chat de voz es totalmente histórico e inigualable.</p>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">🎯</div>
+      <h3>Main Widow / Genji</h3>
+      <p>Falla el 99% de sus tiros, pero el 1% que acierta va directo para el edit de TikTok.</p>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">🚀</div>
+      <h3>Objetivo: Francia</h3>
+      <p>Su ulti preferida siempre va dirigida estratégicamente hacia coordenadas francesas.</p>
+    </div>
+
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2026 JONYMELABO FAN PAGE — Servidor Nginx en Docker (Port 8080)</p>
+  </footer>
+
+  <script>
+    function bombardearFrancia() {
+      alert("🚨 ALERTA MÁXIMA 🚨\nJONYMELABO ha lanzado una Ultimate directo a Francia.\n\nEfecto: +67 AURA OBTENIDA ✨");
+    }
+  </script>
+
+</body>
+</html>

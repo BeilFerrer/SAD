@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RAYO MCQUEEN // Cuchao 95</title>
+  <!-- Fuente deportiva / velocista -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Faster+One&family=Russo+One&family=Teko:wght@500;700&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --mcqueen-red: #e60012;
+      --mcqueen-yellow: #ffcc00;
+      --mcqueen-dark: #111111;
+      --mcqueen-card-bg: #1c1c1c;
+      --mcqueen-white: #ffffff;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: var(--mcqueen-dark);
+      color: var(--mcqueen-white);
+      font-family: 'Teko', sans-serif;
+      font-size: 1.3rem;
+      overflow-x: hidden;
+      background-image: 
+        linear-gradient(45deg, #181818 25%, transparent 25%), 
+        linear-gradient(-45deg, #181818 25%, transparent 25%), 
+        linear-gradient(45deg, transparent 75%, #181818 75%), 
+        linear-gradient(-45deg, transparent 75%, #181818 75%);
+      background-size: 40px 40px;
+      background-position: 0 0, 0 20px, 20px -20px, -20px 0px;
+    }
+
+    /* Header */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 5%;
+      background: var(--mcqueen-red);
+      border-bottom: 5px solid var(--mcqueen-yellow);
+      box-shadow: 0 5px 20px rgba(230, 0, 18, 0.6);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .logo {
+      font-family: 'Faster One', cursive;
+      font-size: 2.2rem;
+      color: var(--mcqueen-yellow);
+      text-shadow: 3px 3px 0px #000;
+    }
+
+    nav a {
+      color: var(--mcqueen-white);
+      text-decoration: none;
+      margin-left: 1.5rem;
+      font-family: 'Russo One', sans-serif;
+      font-size: 1.1rem;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+
+    nav a:hover {
+      color: var(--mcqueen-yellow);
+    }
+
+    /* Hero Section */
+    .hero {
+      min-height: 80vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 2rem 1rem;
+      background: radial-gradient(circle, rgba(230,0,18,0.3) 0%, rgba(17,17,17,0.95) 70%);
+      position: relative;
+    }
+
+    .number-95 {
+      font-family: 'Faster One', cursive;
+      font-size: 8rem;
+      color: var(--mcqueen-yellow);
+      line-height: 1;
+      text-shadow: 5px 5px 0px var(--mcqueen-red), 10px 10px 0px #000;
+      margin-bottom: 0.5rem;
+    }
+
+    .hero h1 {
+      font-family: 'Russo One', sans-serif;
+      font-size: 3.5rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: var(--mcqueen-white);
+      text-shadow: 2px 2px 0px #000;
+    }
+
+    .hero p {
+      font-size: 1.8rem;
+      max-width: 600px;
+      color: var(--mcqueen-yellow);
+      margin-bottom: 2rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .btn-cuchao {
+      font-family: 'Russo One', sans-serif;
+      padding: 0.8rem 2.5rem;
+      font-size: 1.5rem;
+      color: #000;
+      background: linear-gradient(90deg, var(--mcqueen-yellow), #ff9900);
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      text-transform: uppercase;
+      transform: skew(-10deg);
+      transition: all 0.2s ease;
+      box-shadow: 0 0 15px var(--mcqueen-yellow);
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .btn-cuchao:hover {
+      transform: skew(-10deg) scale(1.1);
+      background: #fff;
+      box-shadow: 0 0 25px #fff;
+    }
+
+    /* Cards Section */
+    .section-title {
+      font-family: 'Russo One', sans-serif;
+      text-align: center;
+      font-size: 2.8rem;
+      text-transform: uppercase;
+      margin: 3rem 0 1.5rem;
+      color: var(--mcqueen-red);
+      text-shadow: 1px 1px 0px var(--mcqueen-yellow);
+    }
+
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 2rem;
+      padding: 0 5% 4rem;
+      max-width: 1300px;
+      margin: 0 auto;
+    }
+
+    .card {
+      background: var(--mcqueen-card-bg);
+      border: 3px solid var(--mcqueen-red);
+      border-radius: 10px;
+      padding: 1.8rem;
+      text-align: center;
+      position: relative;
+      transition: transform 0.3s, border-color 0.3s;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+    }
+
+    .card:hover {
+      transform: translateY(-8deg) scale(1.02);
+      border-color: var(--mcqueen-yellow);
+    }
+
+    .card-icon {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .card h3 {
+      font-family: 'Russo One', sans-serif;
+      font-size: 1.8rem;
+      color: var(--mcqueen-yellow);
+      margin-bottom: 0.5rem;
+      text-transform: uppercase;
+    }
+
+    .card p {
+      color: #cccccc;
+      font-size: 1.3rem;
+      line-height: 1.3;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 2rem;
+      background: #000;
+      border-top: 4px solid var(--mcqueen-red);
+      color: #888;
+      font-family: 'Russo One', sans-serif;
+    }
+
+    @media (max-width: 768px) {
+      .number-95 { font-size: 5rem; }
+      .hero h1 { font-size: 2.2rem; }
+      header { flex-direction: column; gap: 0.8rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navegación -->
+  <header>
+    <div class="logo">MCQUEEN</div>
+    <nav>
+      <a href="#inicio">Inicio</a>
+      <a href="#frases">Frases</a>
+      <a href="#copa">Copa Pistón</a>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero" id="inicio">
+    <div class="number-95">95</div>
+    <h1>RAYO MCQUEEN</h1>
+    <p>"Soy veloz... un corredor de carreras puro."</p>
+    <a href="#frases" class="btn-cuchao">¡¡CUCHAO!! ⚡</a>
+  </section>
+
+  <!-- Sección de Frases y Características -->
+  <h2 class="section-title" id="frases">Modo Velocidad</h2>
+  <section class="cards-grid">
+    
+    <div class="card">
+      <div class="card-icon">⚡</div>
+      <h3>Velocidad Pura</h3>
+      <p>"1 ganador, 42 perdedores. Yo me como a los perdedores en el desayuno."</p>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">🏁</div>
+      <h3>Radiador Springs</h3>
+      <p>Donde aprendió a girar a la derecha para ir a la izquierda gracias al legendario Doc Hudson.</p>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">🏆</div>
+      <h3>Copa Pistón</h3>
+      <p>Múltiple campeón del trofeo más codiciado de la carrera automovilística.</p>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">🛞</div>
+      <h3>Rust-eze</h3>
+      <p>Con un poco de Rust-eze... ¡y luces como un campeón en la pista!</p>
+    </div>
+
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>⚡ 2026 RAYO MCQUEEN FAN PAGE — Nginx en Docker (Port 8080)</p>
+  </footer>
+
+</body>
+</html>
